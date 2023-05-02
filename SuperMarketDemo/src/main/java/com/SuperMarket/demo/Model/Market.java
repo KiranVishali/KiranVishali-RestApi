@@ -7,8 +7,8 @@ import jakarta.persistence.Id;
 public class Market {
 	@Id
 	private int billid;
-	private String prname;
-	private int pramt;
+	private String productname;
+	private int productamount;
 	private String custname;
 	
 	public int getBillid() {
@@ -18,16 +18,16 @@ public class Market {
 		this.billid = billid;
 	}
 	public String getPrname() {
-		return prname;
+		return productname;
 	}
 	public void setPrname(String prname) {
-		this.prname = prname;
+		this.productname = prname;
 	}
 	public int getPramt() {
-		return pramt;
+		return productamount;
 	}
 	public void setPramt(int pramt) {
-		this.pramt = pramt;
+		this.productamount = pramt;
 	}
 	public String getCustname() {
 		return custname;
