@@ -1,5 +1,0 @@
-package com.SuperMarket.demo.Repository;
-
-public interface MarketRepository1 {
-
-}

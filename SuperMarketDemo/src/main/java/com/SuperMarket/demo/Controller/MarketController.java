@@ -25,7 +25,7 @@ public class MarketController {
 	{
 		return serobj.SaveInfo(obj);
 	}
-	@GetMapping(value="/get")
+	@GetMapping("/get")
 	public List<Market>getAllMarket()
 	{
 		List<Market>Marketlist=serobj.getAllMarket();
@@ -65,14 +65,58 @@ public class MarketController {
 		return serobj.descsortMarket(field);
 	}
 	@GetMapping("/paging/{offset}/{pagesize}")
-	public Page<Market>pagingMarket(@PathVariable("offset") int offset,@PathVariable("pagesize") int pagesize)
+	public Page<Market> pagingMarket(@PathVariable ("offset") int offset,@PathVariable("pagesize") int pagesize)
 	{
 		return serobj.pagingMarket(offset,pagesize);
 	}
 	@GetMapping("/pagingAndSorting/{offset}/{pagesize}/{field}")
-	public List<Market>pagingAndSorting(@PathVariable("offset") int offset,@PathVariable("pagesize") int pageSize,@PathVariable("field") String field)
+	public List<Market> pagingAndSorting(@PathVariable ("offset") int offset,@PathVariable("pagesize") int pagesize,@PathVariable("field") String field)
 	{
-		return serobj.pagingAndSorting(offset,pageSize,field);
+		return serobj.pagingAndSorting(offset,pagesize,field);
 	}
+	@GetMapping("/fetchMarketByProductnamePrefix/{prefix}")
+	public List<Market>fetchMarketByProductnamePrefix(@PathVariable String prefix)
+	{
+		return serobj.fetchMarketByProductnamePrefix(prefix);
+	}
+	@GetMapping("/fetchMarketByProductnameSuffix/{suffix}")
+	public List<Market>fetchMarketByProductnameSuffix(@PathVariable String suffix)
+	{
+		return serobj.fetchMarketByProductnameSuffix(suffix);
+	}
+	@GetMapping("/getMarketByProductamount/{productamount}/{productname}")
+	public List<Market>fetchMarketByProductamount(@PathVariable String productamount,@PathVariable String productname)
+	{
+		return serobj.getMarketByProductamount(productamount,productname);
+	}
+	@DeleteMapping("/deletebyquery/{productname}")
+	public String deleteMarketByProductname(@PathVariable("productname") String productname)
+	{
+		int result=serobj.deleteMarketByProductname(productname);
+		if(result>0)
+			return "Product record deleted";
+		else
+			return "Problem occured while deleting";
+	}
+	@PutMapping("/updatebyquery/{productamount}/{productname}")
+	public String updateMarket(@PathVariable ("productamount")String productamount,@PathVariable ("productname")String productname)
+	{
+		int result= serobj.updateMarket(productamount,productname);
+		if(result>0)
+			return "Product record updated";
+		else
+			return "Problem occured while updating";
+	}
+	@GetMapping("/fetchbycust/{customername}")
+	public List<Market> fetchMarketByCustomername(@PathVariable String customername)
+	{
+		return serobj.fetchMarketByCustomername(customername);
+	}
+
+
+
+
+
+
 
 }

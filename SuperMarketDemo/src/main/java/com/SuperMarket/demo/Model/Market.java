@@ -8,8 +8,8 @@ public class Market {
 	@Id
 	private int billid;
 	private String productname;
-	private int productamount;
-	private String custname;
+	private String productamount;
+	private String customername;
 	
 	public int getBillid() {
 		return billid;
@@ -17,23 +17,23 @@ public class Market {
 	public void setBillid(int billid) {
 		this.billid = billid;
 	}
-	public String getPrname() {
+	public String getProductname() {
 		return productname;
 	}
-	public void setPrname(String prname) {
-		this.productname = prname;
+	public void setProductname(String productname) {
+		this.productname = productname;
 	}
-	public int getPramt() {
+	public String getProductamount() {
 		return productamount;
 	}
-	public void setPramt(int pramt) {
-		this.productamount = pramt;
+	public void setProductamount(String productamount) {
+		this.productamount = productamount;
 	}
-	public String getCustname() {
-		return custname;
+	public String getCustomername() {
+		return customername;
 	}
-	public void setCustname(String custname) {
-		this.custname = custname;
+	public void setCustomername(String customername) {
+		this.customername = customername;
 	}
 	
 
